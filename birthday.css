@@ -133,6 +133,7 @@ body {
     padding: 16px 20px;
   }
 }
+
 #emoji-shower {
   position: fixed;
   top: 0;
@@ -162,3 +163,4 @@ body {
     opacity: 0;
   }
 }
+
