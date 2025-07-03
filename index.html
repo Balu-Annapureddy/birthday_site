@@ -13,9 +13,9 @@
   <body>
     <!-- Intro Page -->
     <div class="page welcome" id="welcomePage">
-      <h1>Hello Akki👋<br>Happy Birthday🎂</h1>
+      <h1>Hello Akki👋<br />Happy Birthday🎂</h1>
       <p class="intro-text">
-        I made this Website Just for you.<br/>
+        I made this Website Just for you.<br />
         Ready to smile😊?
       </p>
       <button class="btn" onclick="startExperience()">Enter</button>
@@ -28,8 +28,8 @@
       <div class="center-message">
         <p>🎂 Happy Birthday Akki💞🎉</p>
         <p>
-          You make my world🌍 a whole lot brighter⭐ just by being in it.<br>
-          Sending you smiles😁 for every moment of your special day…<br>
+          You make my world🌍 a whole lot brighter⭐ just by being in it.<br />
+          Sending you smiles😁 for every moment of your special day…<br />
           Have a wonderful time and a very very very happy birthday!🥰
         </p>
       </div>
@@ -83,7 +83,8 @@
         function createEmoji() {
           const emoji = document.createElement("div");
           emoji.classList.add("emoji");
-          emoji.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
+          emoji.textContent =
+            emojiList[Math.floor(Math.random() * emojiList.length)];
           emoji.style.left = Math.random() * 100 + "vw";
           document.getElementById("emoji-shower").appendChild(emoji);
           setTimeout(() => emoji.remove(), 5000);
