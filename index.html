@@ -23,12 +23,14 @@
 
     <!-- Main Page -->
     <div class="page" id="mainPage">
+      <div id="emoji-shower"></div>
       <div class="floating-lyrics" id="lyricsBox"></div>
       <div class="center-message">
         <p>🎂 Happy Birthday Akki💞🎉</p>
         <p>
           You make my world🌍 a whole lot brighter⭐ just by being in it.<br>
-          Sending you smiles😁 for every moment of your special day…<br>Have a wonderful time and a very very very happy birthday!🥰
+          Sending you smiles😁 for every moment of your special day…<br>
+          Have a wonderful time and a very very very happy birthday!🥰
         </p>
       </div>
     </div>
@@ -72,10 +74,21 @@
             div.className = "lyrics-line float-up";
             div.textContent = line.text;
             lyricsBox.appendChild(div);
-
             setTimeout(() => div.remove(), 5000);
-          }, 1000 + line.time); // 1-second offset
+          }, 1000 + line.time);
         });
+
+        // Emoji Shower Start
+        const emojiList = ["🎂", "🎈", "💖", "✨", "🎉", "🥳", "💫"];
+        function createEmoji() {
+          const emoji = document.createElement("div");
+          emoji.classList.add("emoji");
+          emoji.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
+          emoji.style.left = Math.random() * 100 + "vw";
+          document.getElementById("emoji-shower").appendChild(emoji);
+          setTimeout(() => emoji.remove(), 5000);
+        }
+        setInterval(createEmoji, 300);
       }
 
       document.getElementById("welcomePage").style.display = "flex";
