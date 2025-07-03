@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Surprise for You</title>
+    <link rel="stylesheet" href="birthday.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Intro Page -->
+    <div class="page welcome" id="welcomePage">
+      <h1>Hey You 💫</h1>
+      <p class="intro-text">
+        I made this Website Just for you.<br />
+        Ready to smile😊?
+      </p>
+      <button class="btn" onclick="startExperience()">Enter</button>
+    </div>
+
+    <!-- Main Page -->
+    <div class="page" id="mainPage">
+      <div class="floating-lyrics" id="lyricsBox"></div>
+      <div class="center-message">
+        <p>🎂 Happy Birthday 🎉</p>
+        <p>
+          You’re the kind of person who light up my world like a star ⭐. So
+          this one’s for you — turn it up and have a beautiful year a head💕.
+        </p>
+      </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="song" src="birthday_audio.mp3" preload="auto"></audio>
+
+    <script>
+      function startExperience() {
+        document.getElementById("welcomePage").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+
+        const audio = document.getElementById("song");
+
+        setTimeout(() => {
+          audio.play();
+          setTimeout(() => audio.pause(), 30000);
+        }, 1000); // 1-second delay before song starts
+
+        const lyricsBox = document.getElementById("lyricsBox");
+
+        const lyricsWithTimings = [
+          { time: 0, text: "You light💡 me up inside" },
+          { time: 2000, text: "Like the 4th of July📅" },
+          { time: 4500, text: "Whenever you're around 💫" },
+          { time: 6500, text: "I always seem to smile😁" },
+          { time: 9000, text: "People ask me how? 🤔" },
+          { time: 11000, text: "Well you're🫵 the reason why" },
+          { time: 13500, text: "I'm dancing🕺 in the mirror" },
+          { time: 16000, text: "And singing🎤 in the shower" },
+          { time: 18000, text: "La la di, la la da🎶" },
+          { time: 19500, text: "La la da, la la da🎶" },
+          { time: 21000, text: "Singing in the shower 🎤" },
+          { time: 22500, text: "La la di, la la da🎶" },
+          { time: 24000, text: "La la da, la la da🎶" },
+        ];
+
+        lyricsWithTimings.forEach((line) => {
+          setTimeout(() => {
+            const div = document.createElement("div");
+            div.className = "lyrics-line float-up";
+            div.textContent = line.text;
+            lyricsBox.appendChild(div);
+
+            setTimeout(() => div.remove(), 5000);
+          }, 1000 + line.time); // 1-second offset
+        });
+      }
+
+      document.getElementById("welcomePage").style.display = "flex";
+    </script>
+  </body>
+</html>
